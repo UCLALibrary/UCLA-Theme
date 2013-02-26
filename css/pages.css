@@ -291,7 +291,7 @@ section.sidebar ul li {
     color: #fff;
   }
 
-section.sidebar ul li.first {
+ul.islandora-solr-facet li:first-child {
   border-top: 1px solid #737475;
 }
 
