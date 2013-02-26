@@ -198,6 +198,22 @@ section.sidebar ul.facet-list {
 	position: absolute;
 }
 
+#block-block-6 h2 {
+		font-family: 'Open Baskerville 0.0.53';
+		font-weight: 100;
+		font-size: 300%;
+		letter-spacing: 0.5pt;
+		text-transform: none;
+		line-height: 0.5em;
+}
+
+#block-block-6 h2.it {
+	font-size: 125%;
+	font-style: italic;
+	float: right;
+	position: relative; top: -45px;
+}
+
 #header #edit-submit {
 	height: 36px; width: 75px;
 	position: absolute; top: 8px; right: 5px;
