@@ -28,7 +28,6 @@ h2.block-title { /* Block title */
 #header h2.block-title {
 	text-transform: uppercase;
 	font-size: 95%; letter-spacing: 1pt;
-	font-weight: 600;
 }
 
 #block-aggregator-category-1 { /* Block for the latest news items in the first category */
@@ -177,9 +176,9 @@ section.sidebar ul.facet-list {
 }
 
 #block-block-2 {
-	float: left;
 	width: 45%;
 	clear: both;
+	margin-bottom: 0;
 }
 
 	#block-block-2 h2{
@@ -194,7 +193,7 @@ section.sidebar ul.facet-list {
 	}
 
 #block-block-6 {
-	top: 85px;
+	top: 75px;
 	position: absolute;
 }
 
@@ -204,18 +203,20 @@ section.sidebar ul.facet-list {
 		font-size: 300%;
 		letter-spacing: 0.5pt;
 		text-transform: none;
-		line-height: 0.5em;
+		line-height: 1em;
+		margin: 0;
 }
 
 #block-block-6 h2.it {
 	font-size: 125%;
 	font-style: italic;
 	float: right;
-	position: relative; top: -45px;
+	margin-top: 0.3em;
 }
 
 #header #edit-submit {
-	height: 36px; width: 75px;
+	height: 36px; width: 85px;
+	font-size: 90%;
 	position: absolute; top: 8px; right: 5px;
 		border-radius: 5px;
 		border: 1px solid #ccc;
