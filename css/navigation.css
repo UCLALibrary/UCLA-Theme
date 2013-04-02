@@ -58,6 +58,7 @@ img.language-icon {
 
 #navigation, #block-menu-block-2 {
   position: relative;
+  z-index: 100;
 }
 
 #block-menu-block-2 {
@@ -95,6 +96,30 @@ img.language-icon {
 }
 
 .region-navigation {
+}
+
+body.i18n-ar .menu-block-2 ul.links, /* Main menu and secondary menu links */
+body.i18n-ar .menu-block-2 ul.menu { /* Menu block links */
+  text-align: right !important;
+}
+
+.i18n-ar .menu-block-2 ul.links li,
+.i18n-ar .menu-block-2 ul.menu li { /* A simple method to get navigation links to appear in one line. */
+  float: right !important;
+  padding: 0 0 0 10px;
+}
+
+.i18n-ar .menu-block-2 ul.links li.first,
+.i18n-ar .menu-block-2 ul.menu li.first { 
+  padding: 0 !important;
+  margin-right: 0;
+}
+
+
+.i18n-ar #block-menu-block-1 {
+  float: left;
+  display: block;
+  padding-left: 1.5em;
 }
 
 /*
