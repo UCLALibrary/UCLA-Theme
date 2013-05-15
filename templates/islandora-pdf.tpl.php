@@ -26,7 +26,7 @@ catch (Exception $e) {
 if (isset($results)) {
 	$solr_results = json_decode($results->getRawResponse(), TRUE);
 
-	if ($solr_results['response']->numFound == 0) {
+	if ($solr_results['response']['numFound'] > 0) {
 		$modsXML = $solr_results['response']['docs'][0]['mods_xml'][0];
 		$mods = simplexml_load_string($modsXML);
 		$mods->registerXPathNamespace('mods', 'http://www.loc.gov/mods/v3');
