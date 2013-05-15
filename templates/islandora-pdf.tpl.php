@@ -109,7 +109,7 @@ if (isset($results)) {
 							echo ':</dt><dd class="mods-genre">';
 						}
 					
-						echo $genre . '<br/>';
+						echo '<span dir="ltr">' . $genre . '</span><br/>';
 						$index++;
 					
 						if ($index == $total) {
