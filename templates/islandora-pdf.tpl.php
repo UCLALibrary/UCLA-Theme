@@ -58,7 +58,9 @@ if (isset($results)) {
 				</h2>
 				<ul>
 					<?php foreach ($parent_collections as $collection): ?>
-					<li><?php print l($collection->label, "islandora/object/{$collection->id}"); ?>
+					<li>
+					<?php print l(t('@collectionName', array('@collectionName' =>
+						$collection->label)), "islandora/object/{$collection->id}"); ?>
 					</li>
 					<?php endforeach; ?>
 				</ul>
