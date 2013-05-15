@@ -69,7 +69,7 @@ if (isset($results)) {
 	<!-- removed 'collapsed' for a test -->
 	<fieldset class="collapsible islandora-pdf-metadata">
 		<legend>
-			<span class="fieldset-legend"><?php print t('Details'); ?> </span>
+			<span class="fieldset-legend"><?php print t('Extended details'); ?> </span>
 		</legend>
 		<div class="fieldset-wrapper">
 			<dl class="islandora-inline-metadata islandora-pdf-fields">
