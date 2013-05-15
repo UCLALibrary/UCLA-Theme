@@ -29,7 +29,10 @@ if (isset($results)) {
 	if ($solr_results['response']['numFound'] > 0) {
 		$modsXML = $solr_results['response']['docs'][0]['mods_xml'][0];
 		$mods = simplexml_load_string($modsXML);
-		$mods->registerXPathNamespace('mods', 'http://www.loc.gov/mods/v3');
+		
+		if (isset($mods)) {
+			$mods->registerXPathNamespace('mods', 'http://www.loc.gov/mods/v3');
+		}
 	}
 }
 ?>
