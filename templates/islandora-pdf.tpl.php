@@ -75,15 +75,123 @@ if (isset($results)) {
 			<dl class="islandora-inline-metadata islandora-pdf-fields">
 				<?php
 				if (isset($mods)) {
+					echo '<dt class="mods-title first">' . t('Title') . ':</dt>';
+
 					if ($language->name == 'Arabic') {
 						$title = $mods->xpath('/mods/titleInfo[not(@type)]/title');
-						echo '<dt class="mods-title first">العنوان</dt>';
 						echo '<dd class="mods-title first"><span dir="ltr">' . $title[0] . '</span></dd>';
 					} else {
 						$title = $mods->xpath('/mods/titleInfo[@type="alternative"]/title');
-						echo '<dt class="mods-title first">Title: </dt>';
 						echo '<dd class="mods-title first">' . $title[0] . '</dd>';
 					}
+					
+					$altTitle = $mods->xpath('/mods/titleInfo[@type="alternative"]/title');
+					if (count($altTitle) > 1) {
+						echo '<dt class="mods-title">' . t('Alternative title') . ':</dt>';
+						echo '<dd class="mods-title"><span dir="ltr">' . $altTitle[1] . '</span></dd>';
+					}
+					
+					$dateCreated = $mods->xpath('/mods/originInfo/dateCreated[not(@encoding)]');
+					if (count($dateCreated) > 1) {
+						echo '<dt class="mods-dateCreated">' . t('Date created') . ':</dt>';
+						echo '<dd class="mods-dateCreated">' . $dateCreated[0] . '</dd>';
+					}
+
+					// TODO: wrap these repeated code blocks in a nice function
+					
+					$genres = $mods->xpath('/mods/genre');
+					$index = 0;
+					$total = count($genres);
+					foreach ($genres as $genre) {
+						if ($index == 0) {
+							echo '<dt class="mods-genre">';
+							if ($total > 1) echo t('Genres'); else echo t('Genre');
+							echo ':</dt><dd class="mods-genre">';
+						}
+					
+						echo $genre . '<br/>';
+						$index++;
+					
+						if ($index == $total) {
+							echo '</dd>';
+						}
+					}
+					
+					if ($language->name == "Arabic") {
+						$topics = $mods->xpath('/mods/subject[@authority="local"]/topic');
+						$index = 0;
+						$total = count($topics);
+						foreach ($topics as $topic) {
+							if ($index == 0) {
+								echo '<dt class="mods-topic">';
+								if ($total > 1) echo t('Topics'); else echo t('Topic');
+								echo ':</dt><dd class="mods-topic">';
+							}
+							
+							echo '<span dir="ltr">' . $topic . '</span><br/>';
+							$index++;
+							
+							if ($index == $total) {
+								echo '</dd>';
+							}
+						}
+					}
+					
+					$topics = $mods->xpath('/mods/subject[not(@authority="local")]/topic');
+					$index = 0;
+					$total = count($topics);
+					foreach ($topics as $topic) {
+						if ($index == 0) {
+							echo '<dt class="mods-topic">';
+							if ($total > 1) echo t('Topics'); else echo t('Topic');
+							echo ':</dt><dd class="mods-topic">';
+						}
+							
+						echo '<span dir="ltr">' . $topic . '</span><br/>';
+						$index++;
+							
+						if ($index == $total) {
+							echo '</dd>';
+						}
+					}
+					
+					$notes = $mods->xpath('/mods/note');
+					$index = 0;
+					$total = count($notes);
+					foreach ($notes as $note) {
+						if ($index == 0) {
+							echo '<dt class="mods-note">';
+							if ($total > 1) echo t('Notes'); else echo t('Note');
+							echo ':</dt><dd class="mods-note">';
+						}
+
+						echo '<span dir="ltr">' . $note . '</span><br/>';						
+						$index++;
+						
+						if ($index == $total) {
+							echo '</dd>';
+						}
+					}
+					
+					$lang = $mods->xpath('/mods/language/languageTerm[@type="code"]');
+					if ($lang == 'ara') {
+						echo '<dt class="mods-language">' . t('Language') . ':</dt>';
+						echo '<dd class="mods-language">' . t('Arabic') . '</dd>';
+					}
+					if ($lang == 'eng') {
+						echo '<dt class="mods-language">' . t('Language') . ':</dt>';
+						echo '<dd class="mods-language">' . t('English') . '</dd>';
+					}
+					
+					$extent = $mods->physicalDescription->extent;
+					if (isset($extent)) {
+						echo '<dt class="mods-extent">' . t('Description') . ':</dt>';
+						echo '<dd class="mods-extent"><span dir="ltr">' . $extent . '</span></dd>';
+					}
+					
+					$recordId = $mods->recordInfo->recordIdentifier;
+					echo '<dt class="mods-recordID">' . t('Record ID') . ':</dt>';
+					echo '<dd class="mods-recordID">' . $recordId . '</dd>';
 				} else {
 				?>
 				<?php $row_field = 0; ?>
