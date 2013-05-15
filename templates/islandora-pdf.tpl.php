@@ -163,6 +163,42 @@ if (isset($results)) {
 						}
 					}
 					
+					$geographics = $mods->xpath('/mods/subject/geographic');
+					$index = 0;
+					$total = count($geographics);
+					foreach ($geographics as $geographic) {
+						if ($index == 0) {
+							echo '<dt class="mods-geographic">';
+							if ($total > 1) echo t('Geographics'); else echo t('Geographic');
+							echo ':</dt><dd class="mods-geographic">';
+						}
+							
+						echo '<span dir="ltr">' . $geographic . '</span><br/>';
+						$index++;
+							
+						if ($index == $total) {
+							echo '</dd>';
+						}
+					}
+					
+					$names = $mods->xpath('/mods/name/namePart');
+					$index = 0;
+					$total = count($names);
+					foreach ($names as $name) {
+						if ($index == 0) {
+							echo '<dt class="mods-name">';
+							if ($total > 1) echo t('Subjects'); else echo t('Subject');
+							echo ':</dt><dd class="mods-name">';
+						}
+
+						echo '<span dir="ltr">' . $name . '</span><br/>';
+						$index++;
+
+						if ($index == $total) {
+							echo '</dd>';
+						}
+					}
+					
 					$notes = $mods->xpath('/mods/note');
 					$index = 0;
 					$total = count($notes);
