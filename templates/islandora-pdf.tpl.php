@@ -66,7 +66,8 @@ if (isset($results)) {
 			<?php endif; ?>
 		</div>
 	</div>
-	<fieldset class="collapsible collapsed islandora-pdf-metadata">
+	<!-- removed 'collapsed' for a test -->
+	<fieldset class="collapsible islandora-pdf-metadata">
 		<legend>
 			<span class="fieldset-legend"><?php print t('Details'); ?> </span>
 		</legend>
