@@ -88,9 +88,11 @@ if (isset($results)) {
 					if ($language->name == 'Arabic') {
 						$title = $mods->xpath('/mods/titleInfo[not(@type)]/title');
 						echo '<dd class="mods-title first"><span dir="ltr">' . $title[0] . '</span></dd>';
+						drupal_set_title($title[0]);
 					} else {
 						$title = $mods->xpath('/mods/titleInfo[@type="alternative"]/title');
 						echo '<dd class="mods-title first">' . $title[0] . '</dd>';
+						drupal_set_title($title[0]);
 					}
 					
 					$altTitle = $mods->xpath('/mods/titleInfo[@type="alternative"]/title');
